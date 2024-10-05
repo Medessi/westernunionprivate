@@ -1,9 +1,119 @@
 let balance = 0;
     const correctAccessCode = "Faith12345";
     const accountName = "Elżbieta Grzeszczyk";
-    const mtcncode = "872 826 8529"
     const correctPassword = "Faith12345";
     let currentSlide = 0;
+
+    const translations = {
+      en: {
+        login: "Login",
+        signup: "Sign Up",
+        username: "Username",
+        password: "Password",
+        accessCode: "Access Code",
+        sendMoney: "Send Money",
+        receiveMoney: "Receive Money",
+        withdrawMoney: "Withdraw Money",
+        userProfile: "User Profile",
+        accountBalance: "Account Balance",
+        welcome: "Welcome",
+        withdraw: "Withdraw",
+        receive: "Receive",
+        track: "Track",
+        locations: "Locations",
+        home: "Home",
+        transfers: "Transfers",
+        activity: "Activity",
+        profile: "Profile",
+        recipientName: "Recipient Name",
+        recipientCountry: "Recipient Country",
+        amountToSend: "Amount to send",
+        send: "Send",
+        senderName: "Sender Name",
+        mtcnNumber: "MTCN Number",
+        amountToWithdraw: "Amount to withdraw",
+        editProfile: "Edit Profile",
+        alreadyHaveAccount: "Already have an account?",
+        dontHaveAccount: "Don't have an account?"
+      },
+      fr: {
+        login: "Connexion",
+        signup: "S'inscrire",
+        username: "Nom d'utilisateur",
+        password: "Mot de passe",
+        accessCode: "Code d'accès",
+        sendMoney: "Envoyer de l'argent",
+        receiveMoney: "Recevoir de l'argent",
+        withdrawMoney: "Retirer de l'argent",
+        userProfile: "Profil utilisateur",
+        accountBalance: "Solde du compte",
+        welcome: "Bienvenue",
+        withdraw: "Retirer",
+        receive: "Recevoir",
+        track: "Suivre",
+        locations: "Agences",
+        home: "Accueil",
+        transfers: "Transferts",
+        activity: "Activité",
+        profile: "Profil",
+        recipientName: "Nom du destinataire",
+        recipientCountry: "Pays du destinataire",
+        amountToSend: "Montant à envoyer",
+        send: "Envoyer",
+        senderName: "Nom de l'expéditeur",
+        mtcnNumber: "Numéro MTCN",
+        amountToWithdraw: "Montant à retirer",
+        editProfile: "Modifier le profil",
+        alreadyHaveAccount: "Déjà un compte ?",
+        dontHaveAccount: "Pas de compte ?"
+      },
+      pl: {
+        login: "Zaloguj się",
+        signup: "Zarejestruj się",
+        username: "Nazwa użytkownika",
+        password: "Hasło",
+        accessCode: "Kod dostępu",
+        sendMoney: "Wyślij pieniądze",
+        receiveMoney: "Odbierz pieniądze",
+        withdrawMoney: "Wypłać pieniądze",
+        userProfile: "Profil użytkownika",
+        accountBalance: "Stan konta",
+        welcome: "Witaj",
+        withdraw: "Wypłać",
+        receive: "Odbierz",
+        track: "Śledź",
+        locations: "Lokalizacje",
+        home: "Strona główna",
+        transfers: "Przelewy",
+        activity: "Aktywność",
+        profile: "Profil",
+        recipientName: "Nazwa odbiorcy",
+        recipientCountry: "Kraj odbiorcy",
+        amountToSend: "Kwota do wysłania",
+        send: "Wyślij",
+        senderName: "Nazwa nadawcy",
+        mtcnNumber: "Numer MTCN",
+        amountToWithdraw: "Kwota do wypłaty",
+        editProfile: "Edytuj profil",
+        alreadyHaveAccount: "Masz już konto?",
+        dontHaveAccount: "Nie masz konta?"
+      }
+    };
+
+    function translateTo(lang) {
+      const elements = document.querySelectorAll('[data-translate]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          if (element.getAttribute('data-translate-attr') === 'placeholder') {
+            element.placeholder = translations[lang][key];
+          } else {
+            element.textContent = translations[lang][key];
+          }
+        }
+      });
+      document.documentElement.lang = lang;
+    }
 
     function showLoading() {
       document.getElementById('loadingScreen').style.display = 'flex';
@@ -92,7 +202,7 @@ let balance = 0;
     }
 
     function editProfile() {
-      alert("Désolé, vous n'avez pas accès à ses fonctionnalités pour le moment.");
+      alert("Fonctionnalité de modification du profil en cours de développement.");
     }
 
     function showNotification(message) {
@@ -137,7 +247,7 @@ let balance = 0;
 
     function receiveMoney() {
       const mtcn = document.getElementById('mtcn').value;
-      if (mtcn!=8728268529 ) {
+      if (mtcn!=8728268529) {
         alert("Veuillez entrer un numéro MTCN valide.");
         return;
       }
@@ -146,7 +256,7 @@ let balance = 0;
 
       setTimeout(() => {
         hideLoading();
-        const receivedAmount = 20000;
+        const receivedAmount =20000;
         balance += receivedAmount;
         updateBalance();
         showNotification(`Vous avez reçu ${receivedAmount} PLN.`);
@@ -177,19 +287,19 @@ let balance = 0;
     }
 
     function showTrackTransfer() {
-      alert("Désolé, vous n'avez pas accès à ses fonctionnalités pour le moment.");
+      alert("Désolé, vous n'avez pas accès à cette fonctionnalité.");
     }
 
     function showFindLocation() {
-      alert("Désolé, vous n'avez pas accès à ses fonctionnalités pour le moment.");
+      alert("Désolé, vous n'avez pas accès à cette fonctionnalité.");
     }
 
     function showTransfersHistory() {
-      alert("Désolé, vous n'avez pas accès à ses fonctionnalités pour le moment.");
+      alert("Désolé, vous n'avez pas accès à cette fonctionnalité.");
     }
 
     function showActivity() {
-      alert("Désolé, vous n'avez pas accès à ses fonctionnalités pour le moment.");
+      alert("Désolé, vous n'avez pas accès à cette fonctionnalité.");
     }
 
     // Initialize the app
