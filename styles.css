@@ -27,6 +27,53 @@
     max-width: 150px;
     height: auto;
   }
+  /* Conteneur pour le sélecteur de langue */
+.language-buttons {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 8px;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style général pour les boutons */
+.language-buttons button {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Effet de survol des boutons */
+.language-buttons button:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    transform: scale(1.1);
+}
+
+/* Style pour les images de drapeaux */
+.language-buttons img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover; /* Assure que l'image conserve sa forme dans le bouton */
+}
+
+/* Effet visuel pour bouton actif */
+.language-buttons button.active {
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.1);
+}
   .balance {
     background-color: #fff;
     padding: 20px;
